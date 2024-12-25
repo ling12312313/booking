@@ -10,4 +10,7 @@ public interface UserService {
     public void addUser(String idcard, String name, String password, String telnumber, String email);
 
     public void updateUser(User user);
+    int findUserId(String s);
+
+    void modifyPwd(String newPassword, int id);
 }

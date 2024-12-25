@@ -47,17 +47,6 @@
     <![endif]-->
 
 </head>
-<script>
-    window.onload = function () {
-        // 获取 success 参数的值
-        var success = "${successMessage}";
-
-        // 如果 success 不为空，则弹出提示框
-        if (success !== "") {
-            alert("修改成功");
-        }
-    };
-</script>
 <body>
 
 <div id="wrapper">
@@ -214,7 +203,7 @@
             <!-- /.sidebar-collapse -->
         </div>
         <!-- /.navbar-static-side --> </nav>
-
+<%--主体内容--%>
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
@@ -586,7 +575,7 @@
 <script src="<%=basePath%>js/sb-admin-2.js"></script>
 
 <script type="text/javascript">
-
+<%--基于 jQuery AJAX 的函数，通过异步请求获取指定航班的信息，并将其填充到前端表单中以供用户编辑。--%>
     function editCustomer(id) {
         $.ajax({
             type: "get",

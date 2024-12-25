@@ -117,7 +117,7 @@
                             </tr>
                             <tr>
 
-                                <td height="24"><a href="#none" class="mm" style="color: #8B864E">忘记密码？</a></td>
+                                <td height="24"><a href="/ModifyPwd.jsp" class="mm" style="color: #8B864E">忘记密码？</a></td>
                                 <td height="24"><a href="/fangwenregister" style="color: #8B864E">立即注册</a></td>
                             </tr>
 

@@ -2,7 +2,7 @@ package com.crm.pojo;
 
 import lombok.Getter;
 import lombok.Setter;
-
+//前端将查询条件和分页参数发送到后端，后端通过这个类接收这些参数并执行相关查询操作。
 
 @Getter
 @Setter

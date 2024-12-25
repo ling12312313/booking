@@ -575,7 +575,7 @@
 <script src="<%=basePath%>js/sb-admin-2.js"></script>
 
 <script type="text/javascript">
-<%--基于 jQuery AJAX 的函数，通过异步请求获取指定航班的信息，并将其填充到前端表单中以供用户编辑。--%>
+
     function editCustomer(id) {
         $.ajax({
             type: "get",

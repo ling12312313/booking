@@ -29,6 +29,26 @@ public class CustomerController {
     @Autowired
     private OrderService orderService;
 
+//    忘记密码
+    @RequestMapping(value = "/user/modifyPwd", method = RequestMethod.POST)
+    public String modifyPwd(@RequestParam String currentPassword,
+                            @RequestParam String newPassword,
+                            @RequestParam String confirmPassword,
+                            @RequestParam String telNumber) {
+        // 查找用户ID
+        int id = (int) userService.findUserId(telNumber);
+
+        // 检查新密码和确认密码是否一致
+        if (!newPassword.equals(confirmPassword)) {
+            return "errorPage"; // 密码不一致，返回错误页面
+        }
+
+        // 修改密码
+        userService.modifyPwd(newPassword, id);
+
+        // 修改成功后重定向
+        return "denglu";  // 重定向到用户个人信息页面
+    }
 //    个人信息
     @RequestMapping(value = "/customer/information")
     public String information(Model model,HttpSession httpSession) {

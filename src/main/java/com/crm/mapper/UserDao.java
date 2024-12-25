@@ -12,5 +12,8 @@ public interface UserDao {
     public void addUser(@Param("idcard") String idcard, @Param("name") String name, @Param("password") String password,
                         @Param("telnumber") String telnumber, @Param("email") String email);
     public void updateUser(User user);
+    public int findUserId (@Param("telNumber") String telNumber);
+
+    public void modifyPwd(@Param("newPassword") String newPassword,@Param("id") int id);
 
 }

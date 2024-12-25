@@ -6,7 +6,7 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 
-
+//机票
 @Getter
 @Setter
 @ToString

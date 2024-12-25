@@ -4,6 +4,7 @@
 	<!-- //总条数 -->
 	<!-- public Integer customerCountByQueryVo(QueryVo vo); private String custName; 
 		private String custSource; private String custIndustry; private String custLevel; -->
+	<!--	动态sql查询符合条件的记录-->
 	<select id="customerCountByQueryVo"  resultType="Integer">
 		select count(1) from flight
 		<where>

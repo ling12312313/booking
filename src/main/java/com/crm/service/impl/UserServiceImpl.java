@@ -28,5 +28,17 @@ public class UserServiceImpl implements UserService {
         userDao.updateUser(user);
 
     }
+    @Override
+    public int findUserId(String telNumber) {
+        int id = userDao.findUserId(telNumber);
+        return id;
+    }
+
+    @Override
+    public void modifyPwd(String newPassword, int id) {
+        userDao.modifyPwd(newPassword,id);
+    }
+
+
 
 }

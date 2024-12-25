@@ -24,11 +24,5 @@
 		update user set idcard=#{idcard},name=#{name},telnumber=#{telnumber},email=#{email} where id=#{id}
 
 	</insert>
-	<update id="modifyPwd" >
-		UPDATE user SET password = #{newPassword} WHERE id = #{id};
-	</update>
-	<select id="findUserId" parameterType="String" resultType="int">
-		select id from user where telnumber=#{telNumber};
-	</select>
 		
 </mapper>

@@ -1,7 +1,7 @@
 package com.common.utils;
 
 import java.util.List;
-
+//Page 是用于存储分页信息的自定义类，泛型为 flight（假设这是一个航班实体类）。
 public class Page<T> {
 
     private int total;

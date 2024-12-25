@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.crm.mapper.BaseDao">
+	<!-- 查询  起点不重复-->
+	<select id="selectstart"  resultType="flight">
+		select DISTINCT start_place from flight
+
+	</select>
+<!--	终点不重复-->
+	<select id="selectend"  resultType="flight">
+		select DISTINCT end_place from flight
+
+	</select>
+
+
+</mapper>

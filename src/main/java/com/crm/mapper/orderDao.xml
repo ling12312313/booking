@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.crm.mapper.orderDao">
+    <!--    public void insertOrder(order_tickect order_tickect, User user);-->
+    <insert id="insertOrder"  parameterType="order_tickect">
+        insert into order_tickect (fly_name,type,takeoff_time,land_time,start_place,end_place,tickect_type,price,name,idcard,status)
+  	    values(#{fly_name},#{type},#{takeoff_time},#{land_time},#{start_place},#{end_place},#{tickect_type},#{price},#{name},#{idcard},#{status})
+
+    </insert>
+    <update id="updateEconomy" parameterType="int">
+        update flight set economy_tickect=economy_tickect-1 where id=#{id} and economy_tickect>0;
+    </update>
+    <update id="updateBussiness" parameterType="int">
+        update flight set bussiness_tickect=bussiness_tickect-1 where id=#{id} and bussiness_tickect>0;
+    </update>
+<!--    //根据id查询-->
+<!--    public order_tickect selectOrderById(int id);-->
+    <select id="selectOrderById" parameterType="int" resultType="order_tickect">
+		SELECT * FROM order_tickect WHERE id = #{id}
+	</select>
+<!--    //总条数-->
+<!--    public Integer OrderCountByQueryVo(@Param("time") String time, @Param("start_place")String start_place, @Param("end_place")String end_place,@Param("name")String name,@Param("idcard") String idcard);-->
+ <select id="OrderCountByQueryVo"  resultType="Integer">
+        select count(1) from order_tickect
+        <where>
+            <if test="time != null and time != ''">
+
+                #{time}= DATE_FORMAT(takeoff_time,'%Y-%m-%d')
+            </if>
+            <if test="start_place != null and start_place != ''">
+                and start_place =#{start_place}
+            </if>
+            <if test="end_place != null and end_place != ''">
+                and end_place = #{end_place}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="idcard != null and idcard != ''">
+                and idcard = #{idcard}
+            </if>
+
+
+        </where>
+    </select>
+    <!--    //结果集-->
+    <!--    public List<order_tickect> selectOrderListByQueryVo(@Param("time") String time, @Param("start_place")String start_place, @Param("end_place")String end_place,-->
+    <!--    @Param("startRow") int startRow , @Param("size") int size);-->
+
+    <select id="selectOrderListByQueryVo" resultType="order_tickect">
+        select * from order_tickect
+        <where>
+            <if test="time != null and time != ''">
+
+                #{time}= DATE_FORMAT(takeoff_time,'%Y-%m-%d')
+            </if>
+            <if test="start_place != null and start_place != ''">
+                and start_place =#{start_place}
+            </if>
+            <if test="end_place != null and end_place != ''">
+                and end_place = #{end_place}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="idcard != null and idcard != ''">
+                and idcard = #{idcard}
+            </if>
+        </where>
+        limit #{startRow},#{size}
+    </select>
+
+    <select id="selectOrder"   resultType="order_tickect">
+        select * from order_tickect where name=#{name} and  idcard = #{idcard}
+
+    </select>
+
+</mapper>
